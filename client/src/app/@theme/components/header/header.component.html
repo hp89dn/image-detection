@@ -1,0 +1,29 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()">AI<span>-Welcome</span></a>
+  </div>
+  <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
+  </nb-select>
+</div>
+
+<div class="header-container">
+  <nb-actions size="small">
+
+    <nb-action class="control-item">
+      <nb-search type="rotate-layout"></nb-search>
+    </nb-action>
+    <nb-action class="control-item" icon="email-outline"></nb-action>
+    <nb-action class="control-item" icon="bell-outline"></nb-action>
+    <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
+      <nb-user [nbContextMenu]="userMenu"
+               [onlyPicture]="userPictureOnly"
+               name="Huỳnh Phước"
+               picture="https://scontent.fdad4-1.fna.fbcdn.net/v/t1.0-9/p960x960/78918686_1031135410570726_7869691215233417216_o.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=qdiXF31nSQgAX_XBkPd&_nc_ht=scontent.fdad4-1.fna&_nc_tp=6&oh=68931bf6bb376869cc64de91f98cdd00&oe=5EAE8A8C">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>
